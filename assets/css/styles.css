@@ -309,6 +309,17 @@ p { margin: 0 0 1rem; }
 }
 .map-placeholder::after { content: "Google Maps"; position: absolute; padding: .3rem .7rem; background: rgba(11,37,69,.85); color: #fff; border-radius: 6px; font-size: .85rem; }
 
+/* real Google Maps embeds */
+.map-grid { display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 1.4rem; }
+.map-grid figure { margin: 0; }
+.map-grid figcaption {
+  font-family: var(--font-serif); font-weight: 700; color: var(--c-blue);
+  margin-bottom: .5rem; padding-left: .9rem; border-left: 4px solid var(--c-burgundy);
+}
+.map-grid figcaption small { display: block; font-family: var(--font-sans); font-weight: 400; font-size: .85rem; color: var(--c-muted); margin-top: .15rem; }
+.map-grid iframe { width: 100%; height: 280px; border: 0; border-radius: var(--radius); box-shadow: var(--shadow-sm); display: block; }
+.map-grid iframe:focus-visible { outline: 3px solid var(--c-gold); outline-offset: 2px; }
+
 /* appointment embed slot */
 .embed-slot {
   border: 2px dashed var(--c-gold); background: rgba(201,162,39,.06); border-radius: var(--radius);
