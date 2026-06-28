@@ -4,9 +4,11 @@ A complete, static, bilingual (English / Spanish) law-firm website built with
 plain **HTML + CSS + vanilla JavaScript**. No frameworks, no build step, no
 backend — ready to deploy directly to **GitHub Pages**.
 
-> See `IMAGE-SOURCE-GUIDE.md` for the universal image-spec companion guide
-> (use it on every future website project). This README covers THIS project
-> specifically.
+> **Companion guides (drop into every future website project):**
+> - `IMAGE-SOURCE-GUIDE.md` — universal photo sizes, naming, and the automatic image-handling routine
+> - `DEPLOYMENT-GUIDE.md` — git push safety, GitHub Pages rebuild verification, and the map-embed checklist
+>
+> This README covers THIS project specifically.
 
 ---
 
@@ -256,6 +258,12 @@ From this project folder:
 python -m http.server 8000
 ```
 Then open **http://localhost:8000/** in your browser.
+
+> **⚠ Before you push:** Read `DEPLOYMENT-GUIDE.md` §2 — it covers the safe
+> first-push patterns (empty remote, force-with-lease, or no-rebase merge) and
+> the post-push verification checklist that confirms the live GitHub Pages HTML
+> actually reflects your changes. Skipping that checklist is how the maps fix
+> silently reverted once; following it prevents it from ever happening again.
 
 ---
 
