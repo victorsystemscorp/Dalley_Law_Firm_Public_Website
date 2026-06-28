@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.dalleylawfirm.com/sitemap.xml
+Sitemap: https://victorsystemscorp.github.io/Dalley_Law_Firm_Public_Website/sitemap.xml
