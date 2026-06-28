@@ -1,0 +1,15 @@
+# Source content folders — NOT part of the live website
+Content/
+content/
+
+# Office / lock files
+*.docx
+~$*
+*.tmp
+
+# Working scripts
+*.ps1
+
+# OS junk
+Thumbs.db
+.DS_Store
