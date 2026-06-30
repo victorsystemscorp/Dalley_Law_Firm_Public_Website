@@ -86,3 +86,26 @@
 window.dalleyMarkChosen = function () {
   try { sessionStorage.setItem("dalleylaw_langChosen", "1"); } catch (e) {}
 };
+
+/* ---- tel: links: only fire on touch devices (phones) ---------------- */
+/* On desktop/tablet the browser shows an annoying "Pick an app" dialog.
+   We detect touch capability and suppress the click on non-touch devices,
+   so the phone number shows as text and can be copied instead.       */
+(function () {
+  var isTouch = (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) ||
+                ("ontouchstart" in window) ||
+                (navigator.maxTouchPoints > 0);
+  if (isTouch) return; /* phones — let tel: work normally */
+  document.querySelectorAll('a[href^="tel:"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      /* optionally copy the number to clipboard for convenience */
+      var num = a.getAttribute("href").replace("tel:", "");
+      if (navigator.clipboard && num) {
+        navigator.clipboard.writeText(num.replace("+1", "")).catch(function(){});
+      }
+    });
+    /* change cursor to text on desktop so it reads as copyable text */
+    a.style.cursor = "text";
+  });
+})();
