@@ -7,6 +7,7 @@ backend — ready to deploy directly to **GitHub Pages**.
 > **Companion guides (drop into every future website project):**
 > - `IMAGE-SOURCE-GUIDE.md` — universal photo sizes, naming, and the automatic image-handling routine
 > - `DEPLOYMENT-GUIDE.md` — git push safety, GitHub Pages rebuild verification, and the map-embed checklist
+> - `TEL-LINKS-GUIDE.md` — phone-number links: only fire `tel:` on phones, suppress "Pick an app" dialog on desktop/tablet
 >
 > This README covers THIS project specifically.
 
