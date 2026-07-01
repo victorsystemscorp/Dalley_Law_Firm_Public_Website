@@ -183,7 +183,9 @@ p { margin: 0 0 1rem; }
 .hero {
   position: relative; color: #fff; background: var(--c-blue-deep);
   padding: clamp(3rem, 9vw, 6rem) 0;
+  min-height: 60vh; display: flex; align-items: center;
 }
+.hero > .container { width: 100%; }
 .hero__bg {
   position: absolute; inset: 0; overflow: hidden;
 }
@@ -399,10 +401,21 @@ p { margin: 0 0 1rem; }
   .nav__links a { padding: .85rem .6rem; border-bottom: 1px solid var(--c-line); border-radius: 0; }
   .nav__links a[aria-current="page"] { border-left: 4px solid var(--c-gold); padding-left: .35rem; }
   .nav__lang { margin-left: auto; order: 3; }
+  /* Compact header on phones so logo + hamburger + lang fit cleanly */
+  .nav { gap: .5rem; }
+  .nav__brand img { height: 38px; width: auto; }
+  .nav__lang { font-size: .82rem; }
+  .nav__lang a { padding: .25rem .35rem; }
   .split { grid-template-columns: 1fr; }
   .split__media { order: -1; }
   .show-on-mobile { display: block; }
   .cta-bar { text-align: center; }
+}
+@media (max-width: 480px) {
+  .hero__cta { flex-direction: column; }
+  .hero__cta .btn { width: 100%; }
+  /* Phone number hidden on smallest screens — it's still in the hero CTA + contact page */
+  .nav__phone { display: none; }
 }
 @media (max-width: 480px) {
   .hero__cta { flex-direction: column; }
