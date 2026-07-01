@@ -120,6 +120,7 @@ p { margin: 0 0 1rem; }
   position: sticky; top: 0; z-index: 100;
   background: #fff; border-bottom: 1px solid var(--c-line);
   box-shadow: var(--shadow-sm);
+  isolation: isolate; /* robust stacking context — header always sits above hero */
 }
 .nav {
   display: flex; align-items: center; gap: 1.2rem;
@@ -414,12 +415,29 @@ p { margin: 0 0 1rem; }
 @media (max-width: 480px) {
   .hero__cta { flex-direction: column; }
   .hero__cta .btn { width: 100%; }
-  /* Phone number hidden on smallest screens — it's still in the hero CTA + contact page */
+  /* Phone-only: show services inline, no hamburger */
   .nav__phone { display: none; }
-}
-@media (max-width: 480px) {
-  .hero__cta { flex-direction: column; }
-  .hero__cta .btn { width: 100%; }
+  .nav__toggle { display: none !important; }
+  .nav { flex-wrap: wrap; gap: .35rem; height: auto; padding: .35rem 0; }
+  .nav__brand { order: 1; }
+  .nav__brand img { height: 34px; width: auto; }
+  .nav__lang { order: 2; margin-left: auto; font-size: .78rem; }
+  .nav__links {
+    position: static !important; transform: none !important;
+    flex-direction: row; flex-wrap: wrap; gap: .2rem .35rem;
+    width: 100%; order: 3; padding: 0; margin-left: 0;
+    background: transparent; box-shadow: none; border: 0;
+    height: auto; border-bottom: 0;
+  }
+  .nav__links li:nth-child(1),        /* hide Home (logo tap = home)  */
+  .nav__links li:nth-child(4) {        /* hide Contact (in hero CTA)    */
+    display: none;
+  }
+  .nav__links a {
+    padding: .35rem .55rem; font-size: .82rem; border-radius: 6px;
+    border-bottom: 0;
+  }
+  .nav__links a[aria-current="page"] { border-left: 0; padding-left: .35rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
